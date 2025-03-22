@@ -11,7 +11,7 @@
     style="cursor: pointer; margin-top: 20px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);"
   />
 
-  <!-- Input for User Name with Two-Way Binding -->
+  <!-- Input for User Name with Two-Way Binding and Validation -->
   <div style="margin-top: 30px;">
     <label for="name" style="font-size: 18px; font-weight: 500;">Enter Your Name: </label>
     <input 
@@ -19,12 +19,18 @@
       id="name" 
       [(ngModel)]="userName" 
       placeholder="Enter your name"
+      (input)="validateName()"
       style="padding: 10px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; width: 250px;"
     />
   </div>
 
+  <!-- Error Message Display -->
+  <p *ngIf="errorMessage" style="color: red; margin-top: 10px;">
+    {{ errorMessage }}
+  </p>
+
   <!-- Personalized Message Displayed Conditionally -->
-  <h2 *ngIf="userName" style="color: #007bff; margin-top: 20px;">
+  <h2 *ngIf="userName && !errorMessage" style="color: #007bff; margin-top: 20px;">
     Hello {{ userName }} from BridgeLabz!
   </h2>
 </div>
