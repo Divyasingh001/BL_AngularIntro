@@ -1,8 +1,30 @@
-<h1>{{ message }}</h1>
-<img 
-  [src]="logoUrl" 
-  alt="BridgeLabz Logo" 
-  width="300" 
-  (click)="openBridgeLabz()" 
-  style="cursor: pointer;"
-/>
+<div style="text-align: center; margin-top: 50px;">
+  <!-- Display the Static Message -->
+  <h1>{{ message }}</h1>
+
+  <!-- Image with Click Event -->
+  <img 
+    [src]="logoUrl" 
+    alt="BridgeLabz Logo" 
+    width="300" 
+    (click)="openBridgeLabz()" 
+    style="cursor: pointer; margin-top: 20px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);"
+  />
+
+  <!-- Input for User Name with Two-Way Binding -->
+  <div style="margin-top: 30px;">
+    <label for="name" style="font-size: 18px; font-weight: 500;">Enter Your Name: </label>
+    <input 
+      type="text" 
+      id="name" 
+      [(ngModel)]="userName" 
+      placeholder="Enter your name"
+      style="padding: 10px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; width: 250px;"
+    />
+  </div>
+
+  <!-- Personalized Message Displayed Conditionally -->
+  <h2 *ngIf="userName" style="color: #007bff; margin-top: 20px;">
+    Hello {{ userName }} from BridgeLabz!
+  </h2>
+</div>
